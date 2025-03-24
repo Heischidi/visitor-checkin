@@ -32,7 +32,7 @@
             console.log("📤 Sending data:", formData); // Debug log
     
             try {
-                let response = await fetch("/submit_checkin", {
+                let response = await fetch("https://visitor-checkin.onrender.com/submit_checkin", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
@@ -51,15 +51,9 @@
                 window.location.reload();
             } catch (error) {
                 console.error("🚨 Network or JavaScript error:", error);
-                alert("❌ Check-in failed due to a network error. Check console for details.");
+                alert("❌ Check-in failed due to a network error. Check the console for details.");
             }
         });
     </script>
-    
-
 </body>
 </html>
-
-
-
-

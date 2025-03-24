@@ -5,11 +5,15 @@
     <title>Admin Dashboard - Visitor Check-In</title>
     <script>
         async function updateStatus(visitorId, status) {
-            const response = await fetch('/update_status', {
+            const endpoint = status === 'approved' 
+                ? `/approve/${visitorId}` 
+                : `/reject/${visitorId}`;
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ visitor_id: visitorId, status: status })
+                headers: { 'Content-Type': 'application/json' }
             });
+
             if (response.ok) {
                 alert(`Visitor ${status}`);
                 location.reload();
