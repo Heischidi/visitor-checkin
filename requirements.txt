@@ -3,3 +3,5 @@ firebase-admin
 qrcode
 gunicorn
 pillow
+flask_cors
+
